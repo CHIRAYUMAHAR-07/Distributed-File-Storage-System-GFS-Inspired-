@@ -1,0 +1,8 @@
+version: "3"
+services:
+metadata:
+build:
+context: .
+dockerfile: Dockerfile.metadata
+ports:
+  - "50051:50051"

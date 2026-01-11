@@ -1,0 +1,5 @@
+FROM gcc:13
+WORKDIR /app
+COPY chunk-server /app
+RUN cmake . && make
+CMD ["./chunk_server"]

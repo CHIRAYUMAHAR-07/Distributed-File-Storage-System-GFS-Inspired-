@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+
+package storage;
+
+
+service MetadataService {
+rpc AllocateChunk (AllocateChunkRequest) returns (AllocateChunkResponse);
+rpc GetChunkLocations (GetChunkLocationsRequest) returns (GetChunkLocationsResponse);
+rpc Heartbeat (HeartbeatRequest) returns (HeartbeatResponse);
+}
+
+
+message AllocateChunkRequest {
+string file_path = 1;
+}
+
+
+message AllocateChunkResponse {
+string chunk_id = 1;
+repeated string replica_nodes = 2;
+}
+
+
+message GetChunkLocationsRequest {
+string chunk_id = 1;
+}
+
+
+message GetChunkLocationsResponse {
+repeated string replica_nodes = 1;
+}
+
+
+message HeartbeatRequest {
+string node_id = 1;
+}
+
+
+message HeartbeatResponse {
+bool ok = 1;
+}
